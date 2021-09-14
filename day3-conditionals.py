@@ -1,25 +1,25 @@
 #!/usr/bin/python3
 
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
-if height >= 120:
-    print("Can ride")
-    age = int(input("What is your age? "))
-    if age < 12:
-        bill = 5
-    elif age >=12 and age <= 18: # elif age <=18
-        bill = 7
-    else:
-        bill = 12
+# print("Welcome to the rollercoaster!")
+# height = int(input("What is your height in cm? "))
+# bill = 0
+# if height >= 120:
+#     print("Can ride")
+#     age = int(input("What is your age? "))
+#     if age < 12:
+#         bill = 5
+#     elif age >=12 and age <= 18: # elif age <=18
+#         bill = 7
+#     else:
+#         bill = 12
 
-    wants_photo = input("Do you want a photo taken? Y or N. ")
-    if wants_photo == 'Y':
-        bill += 3
+#     wants_photo = input("Do you want a photo taken? Y or N. ")
+#     if wants_photo == 'Y':
+#         bill += 3
 
-    print(f"Your final bill is {bill}")
-else:
-    print("Can't ride")
+#     print(f"Your final bill is ${bill}")
+# else:
+#     print("Can't ride")
 
 # ---------------------------odd or even ----------------------------------------------
 # number = int(input("Which number do you want to check? "))
@@ -63,3 +63,44 @@ else:
 #         print("Leap")
 # else:
 #     print("Not Leap")
+
+# --------------------------- Pizza Order----------------------------------------------
+
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+
+small_pizza_price = 15
+medium_pizza_price = 20
+large_pizza_price = 25
+p_for_small = 2
+p_for_medium_large = 3
+extra_cheese_price = 1
+
+bill = 0
+
+if size == 'S':
+    bill += small_pizza_price
+    
+
+elif size == 'M':
+    bill += medium_pizza_price
+    
+else:
+    bill += large_pizza_price
+
+if add_pepperoni == 'Y':
+    if size == 'S':
+        bill += p_for_small
+    else:
+        bill += p_for_medium_large
+
+if extra_cheese == 'Y':
+    bill += extra_cheese_price
+
+
+print(f"Your final bill is ${bill} ")
+
+
+
