@@ -108,34 +108,83 @@
 
 # --------------------------- Love Calculator ----------------------------------------------
 
-print("Welcome to the Love Calculator!")
-name1 = input("What is your name? \n")
-name2 = input("What is their name? \n")
+# print("Welcome to the Love Calculator!")
+# name1 = input("What is your name? \n")
+# name2 = input("What is their name? \n")
 
 
-full_name = name1 + name2
+# full_name = name1 + name2
 
-T = full_name.lower().count('t')
-R = full_name.lower().count('r')
-U = full_name.lower().count('u')
-E = full_name.lower().count('e')
+# T = full_name.lower().count('t')
+# R = full_name.lower().count('r')
+# U = full_name.lower().count('u')
+# E = full_name.lower().count('e')
 
-L = full_name.lower().count('l')
-O = full_name.lower().count('o')
-V = full_name.lower().count('v')
-E = full_name.lower().count('e')
+# L = full_name.lower().count('l')
+# O = full_name.lower().count('o')
+# V = full_name.lower().count('v')
+# E = full_name.lower().count('e')
 
-true_score = (T+R+U+E)
-love_score = (L+O+V+E)
+# true_score = (T+R+U+E)
+# love_score = (L+O+V+E)
 
-total_score = str(true_score) + str(love_score)
-int_total_score = int(total_score)
-print(total_score)
-if int_total_score < 10 or int_total_score > 90:
-    print(f"Your score is {total_score}, you go together like coke and mentos.")
-elif int_total_score >= 40 and int_total_score <= 50:
-    print(f"Your score is {total_score}, you are alright together.") 
+# total_score = str(true_score) + str(love_score)
+# int_total_score = int(total_score)
+# print(total_score)
+# if int_total_score < 10 or int_total_score > 90:
+#     print(f"Your score is {total_score}, you go together like coke and mentos.")
+# elif int_total_score >= 40 and int_total_score <= 50:
+#     print(f"Your score is {total_score}, you are alright together.") 
+# else:
+#     print(f"Your score is {total_score}.")
+
+
+# --------------------------- Project Treasure Island ----------------------------------------------
+
+print('''
+
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/[______]
+*******************************************************************************                                     
+
+
+''')
+
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+first_decision = input("Left or Right? ").lower()
+if first_decision == 'left':
+    second_decision = input("Swim or Wait? ").lower()
+    if second_decision == 'wait':
+        door_decision = input("Which door? Red/Blue/Yellow ").lower()
+        if door_decision == 'red':
+            print("Burned by fire.\n\nGAME OVER\n")
+        elif door_decision == 'blue':
+            print("Eaten by beasts.\n\nGAME OVER\n")
+        elif door_decision == 'yellow':
+            print("You found the treasure, You Win!")
+        else:
+            print("GAME OVER")
+
+    else:
+        print("Attacked by a trout.\n\nGAME OVER\n")
 else:
-    print(f"Your score is {total_score}.")
-
-
+    print("Fall into a hole.\n\nGAME OVER!\n")
