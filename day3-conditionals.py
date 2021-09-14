@@ -11,6 +11,7 @@ if height >= 120:
         print("Please pay 12")
 else:
     print("Can't ride")
+    print("mac print")
 # ---------------------------odd or even ----------------------------------------------
 # number = int(input("Which number do you want to check? "))
 # if number % 2 == 0:
