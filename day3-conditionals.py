@@ -1,27 +1,27 @@
 #!/usr/bin/python3
 
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
-if height >= 120:
-    print("Can ride")
-    age = int(input("What is your age? "))
-    if age < 12:
-        bill = 5
-    elif age >=12 and age <= 18: # elif age <=18
-        bill = 7
-    elif age >= 45 and age <= 55:
-        print("Everything is going to be ok. Have a free ride on us!")
-    else:
-        bill = 12
+# print("Welcome to the rollercoaster!")
+# height = int(input("What is your height in cm? "))
+# bill = 0
+# if height >= 120:
+#     print("Can ride")
+#     age = int(input("What is your age? "))
+#     if age < 12:
+#         bill = 5
+#     elif age >=12 and age <= 18: # elif age <=18
+#         bill = 7
+#     elif age >= 45 and age <= 55:
+#         print("Everything is going to be ok. Have a free ride on us!")
+#     else:
+#         bill = 12
 
-    wants_photo = input("Do you want a photo taken? Y or N. ")
-    if wants_photo == 'Y':
-        bill += 3
+#     wants_photo = input("Do you want a photo taken? Y or N. ")
+#     if wants_photo == 'Y':
+#         bill += 3
 
-    print(f"Your final bill is ${bill}")
-else:
-    print("Can't ride")
+#     print(f"Your final bill is ${bill}")
+# else:
+#     print("Can't ride") 
 
 # ---------------------------odd or even ----------------------------------------------
 # number = int(input("Which number do you want to check? "))
@@ -104,5 +104,38 @@ else:
 
 # print(f"Your final bill is ${bill} ")
 
+
+
+# --------------------------- Love Calculator ----------------------------------------------
+
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+
+
+full_name = name1 + name2
+
+T = full_name.lower().count('t')
+R = full_name.lower().count('r')
+U = full_name.lower().count('u')
+E = full_name.lower().count('e')
+
+L = full_name.lower().count('l')
+O = full_name.lower().count('o')
+V = full_name.lower().count('v')
+E = full_name.lower().count('e')
+
+true_score = (T+R+U+E)
+love_score = (L+O+V+E)
+
+total_score = str(true_score) + str(love_score)
+int_total_score = int(total_score)
+print(total_score)
+if int_total_score < 10 or int_total_score > 90:
+    print(f"Your score is {total_score}, you go together like coke and mentos.")
+elif int_total_score >= 40 and int_total_score <= 50:
+    print(f"Your score is {total_score}, you are alright together.") 
+else:
+    print(f"Your score is {total_score}.")
 
 
