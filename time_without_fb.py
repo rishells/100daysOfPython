@@ -17,3 +17,10 @@ print('Total difference in minutes: ', minutes)
 # returns the difference of the time of the day
 minutes = c.seconds / 60
 print('Difference in minutes: ', minutes)
+
+if minutes > 10080.00:
+
+    print("Congratulations you've achieved 1 week with no fb")
+else:
+    print("Keep holding")
+#print("Minutes in a week: 10080")
