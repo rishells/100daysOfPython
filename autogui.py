@@ -10,7 +10,7 @@ y_rand_position = random.randint(0,500)
 
 pg.FAILSAFE = False
 while True:
-    time.sleep(290)
+    time.sleep(10)
     for i in range(0,5):
         pg.moveTo(x_rand_position, i * 5)
     for i in range(0, 1):
