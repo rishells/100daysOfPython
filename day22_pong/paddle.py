@@ -9,7 +9,7 @@ class Paddle(Turtle):
         self.color("white")
         self.shapesize(5,1)
         self.penup()
-        self.penup()
+        self.goto(INITIAL_POSITION)
 
     def go_up(self):
         new_y = self.ycor() + 20
