@@ -7,6 +7,7 @@ def fib(n):
     return result
 
 
+
 # A memoized solution
 def fib_2(n, memo):
     if memo[n] is not None:
