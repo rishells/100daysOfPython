@@ -1,5 +1,5 @@
 from turtle import Turtle
-
+ # add to comment a git change
 
 class Paddle(Turtle):
     def __init__(self, INITIAL_POSITION):
