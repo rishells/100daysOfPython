@@ -5,8 +5,8 @@
 #     #file.close() With "with" you can avoid using close
 
 
-with open("day24_files\my_file3.txt","a") as file:
-    for i in range(5000):
+with open("day24_files/my_file3.txt","a") as file:
+    for i in range(50):
         file.write(f"\nNew text written from python line: {i}")
 
 
