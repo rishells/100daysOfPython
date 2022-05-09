@@ -16,7 +16,7 @@ class Scoreboard(Turtle):
         self.update_scoreboard()
         
     def get_score(self):
-        with open("day20_snake_game\data.txt") as score_data:
+        with open("/home/rishells/rcdev/100daysOfPython/day20_snake_game/data.txt") as score_data:
             score = score_data.read()
             return int(score)
     def update_scoreboard(self):
@@ -32,7 +32,7 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.score > self.high_score:
             self.high_score = self.score
-            with open("day20_snake_game\data.txt", mode="w") as data:
+            with open("/home/rishells/rcdev/100daysOfPython/day20_snake_game/data.txt", mode="w") as data:
                 data.write(f"{self.high_score}")
         self.score = 0
         self.update_scoreboard()
