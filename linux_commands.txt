@@ -1,0 +1,4 @@
+ls | wc -l	Count items inside a folder
+free -g		Check memory on system
+top		Check processes running on system
+grep 'string to search' < file otr file to search or (*) > --color	Find strings inside files and color them
