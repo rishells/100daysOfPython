@@ -137,16 +137,20 @@ class LinkedList:
         return temp
 
     def reverse(self):
-        temp = self.head
+        '''1.- First we need to switch the head and the tail
+            2.- Add 2 variables before and after to stores the positions as its names
+            3.- Iterate 3 variables (before - temp - after  trhough the list
+            '''
+        temp = self.head 
         self.head = self.tail
         self.tail = temp
         after = temp.next
         before = None
         for _ in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp
-            temp = after
+            after = temp.next # moves the iteration to the right
+            temp.next = before # flips the connection
+            before = temp # moves the conection to the rightr in the tail side to the head
+            temp = after # makes the rest connection that the movement generated
 
 
 
