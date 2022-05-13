@@ -2,3 +2,25 @@ ls | wc -l	Count items inside a folder
 free -g		Check memory on system
 top		Check processes running on system
 grep 'string to search' < file otr file to search or (*) > --color	Find strings inside files and color them
+ctrl + r check the history in the command line history
+wc -l file.txt  Count lines in a file
+du -sh    Get the space used of a directory
+grep -c text_tofind *.txt | wc -l   Count ocurrances in several files
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================================================================0
+General Information
+
+Linux refers to the kernel of the GNU/Linux operating system.
+Unix refers to the original OS developed by AT&T
+
