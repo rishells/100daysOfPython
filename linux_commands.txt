@@ -6,6 +6,7 @@ ctrl + r check the history in the command line history
 wc -l file.txt  Count lines in a file
 du -sh    Get the space used of a directory
 grep -c text_tofind *.txt | wc -l   Count ocurrances in several files
+sudo shutdown 17:30 to program a shutdown  | shutdown -c to cancel the shutdown
 
 
 
