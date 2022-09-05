@@ -9,12 +9,11 @@ grep -c text_tofind *.txt | wc -l   Count ocurrances in several files
 sudo shutdown 17:30 to program a shutdown  | shutdown -c to cancel the shutdown
 
 
+update google chrome
+sudo apt update
 
 
-
-
-
-
+sudo apt install --only-upgrade google-chrome-stable
 
 
 

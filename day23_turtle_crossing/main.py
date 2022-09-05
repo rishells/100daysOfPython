@@ -8,8 +8,6 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-<<<<<<< HEAD
-=======
 player = Player()
 car_manager = CarManager()
 scoreboard = Scoreboard()
@@ -17,13 +15,10 @@ scoreboard = Scoreboard()
 screen.listen()
 screen.onkey(player.go_up,"Up")
 
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-<<<<<<< HEAD
-=======
 
     car_manager.create_car()
     car_manager.move_cars()
@@ -42,4 +37,3 @@ while game_is_on:
         #screen.update()
 
 screen.exitonclick()
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811
