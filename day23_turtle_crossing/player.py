@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-=======
 from turtle import Turtle
 
 
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811
 STARTING_POSITION = (0, -280)
 MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
 
 
-<<<<<<< HEAD
-class Player:
-    pass
-=======
 class Player(Turtle):
     def __init__(self):
         super().__init__()
@@ -33,4 +26,3 @@ class Player(Turtle):
     def is_at_finish_line(self):
         return self.ycor() > FINISH_LINE_Y
             
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811

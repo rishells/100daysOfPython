@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-FONT = ("Courier", 24, "normal")
-
-
-class Scoreboard:
-    pass
-=======
 from turtle import Turtle
 
 FONT = ("Courier", 24, "normal")
@@ -33,4 +26,3 @@ class Scoreboard(Turtle):
 
 
         
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811

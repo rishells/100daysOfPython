@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-=======
 from turtle import Turtle
 import random
 
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
 
-<<<<<<< HEAD
-class CarManager:
-    pass
-=======
 class CarManager: # Removed the  CarManager(Turtle) inheritance
     def __init__(self ):
         #super().__init__()
@@ -46,4 +39,3 @@ class CarManager: # Removed the  CarManager(Turtle) inheritance
     def level_up(self):
         self.car_speed += MOVE_INCREMENT
     
->>>>>>> c9d687b9a5d70c283e71f43cac9fe2b7d7edc811
