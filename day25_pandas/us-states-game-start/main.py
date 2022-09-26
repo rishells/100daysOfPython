@@ -59,17 +59,22 @@ all_states = data.state.to_list()
 guessed_states = []
 
 while len(guessed_states) < 50:
-
-
     answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct", prompt="What's another state's name?").title()
+
+# This code is translated to list comprehension below
+# new_list = [new_item for item in list if test]
     if answer_state == "Exit":
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+    #     missing_states = []
+    #     for state in all_states:
+    #         if state not in guessed_states:
+    #             missing_states.append(state)
+        missing_states = [state for state in all_states if state not in guessed_states] # List comprehension
         new_data = pd.DataFrame(missing_states)
         new_data.to_csv("/home/rishells/rcdev/100daysOfPython/day25_pandas/us-states-game-start/states_to_learn.csv")
         break
+
+    
+
     if answer_state in all_states:
         guessed_states.append(answer_state)
         t = turtle.Turtle()
