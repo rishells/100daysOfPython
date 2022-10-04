@@ -17,24 +17,6 @@ while True:
         pg.press('ctrl')
         #pg.hotkey('alt','tab')
 
-# time.sleep(5)
-# pg.hotkey("win","r")
-# pg.typewrite("https://www.youtube.com/watch?v=t1NxNInQW9Q&ab_channel=EduardoRosas-FinanzasPersonales=45s\n")
-# time.sleep(2)
-# pg.typewrite("k")
-# pg.hotkey("win","r")
-# pg.typewrite("notepad\n")
-# time.sleep(1)
-# pg.typewrite("This was a triumph\n")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.hotkey("ctrl")
-# pg.sleep(3)
 
 
 
