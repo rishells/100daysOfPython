@@ -8,6 +8,7 @@ for n in numbers:
 
 
 #Using list comprehension
+#[new_item for item in list/range ]
 
 new_list2 = [n + 1 for n in numbers]
 
