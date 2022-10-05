@@ -1,18 +1,97 @@
 from tkinter import *
+from tkinter import messagebox
+import random
+import pyperclip
+import pyclip
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+#Password Generator Project
+def generate_password():
+    import random
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
+    nr_letters = random.randint(8, 10)
+    nr_symbols = random.randint(2, 4)
+    nr_numbers = random.randint(2, 4)
+
+    #password_list = []
+    password_letters = [random.choice(letters) for _ in range(nr_letters)]
+    password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
+    password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
+
+
+    '''
+    List comprehension examples
+    #Using list comprehension
+
+    new_list2 = [n + 1 for n in numbers]
+
+    name = "Ricardo"
+    new_name_list = [letter for letter in name]
+
+    # LC using range function
+    number_list = [num * 2 for num in range(1,5)]
+
+    #LC using validation and modification to the return object
+    names = ['Ricardo','Axel','Yadira','Rac','Toto']
+    long_names = [name.upper() for name in names if len(name)> 4]
+    '''
+
+    # Next 3 for loops were replace by list comprehension above
+    # for char in range(nr_letters):
+    #   password_list.append(random.choice(letters))
+
+    # password_list =[random.choice(letters) for char in letters]
+
+    # for char in range(nr_symbols):
+    #   password_list += random.choice(symbols)
+
+    # for char in range(nr_numbers):
+    #   password_list += random.choice(numbers)
+
+    password_list = password_letters + password_symbols + password_numbers
+    random.shuffle(password_list)
+
+    # password = ""
+    # for char in password_list:
+    #   password += char
+
+    password = "".join(password_list)
+    #print(f"Your password is: {password}")
+    password_entry.insert(0,string=password)
+    #pyperclip.copy(password)
+    #pyclip.copy(password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
 
+
+
 def save():
-    data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.txt", "a")
-    data_file.write("test")
-    data_file.close()
-    print("Add button clicked")
+
+    website = website_entry.get()
+    email = email_user_entry.get()
+    password = password_entry.get()
+
+    if len(website) == 0 or len(email)==0 or len (password)==0:
+        messagebox.showwarning(title="Oops",message="Please don't leave any fields empty!")
+    else:  
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it ok to save? ")
+        
+        #messagebox.showinfo(title="Title", message="Message")
+        if is_ok:
+            data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.txt", "a")
+            data_file.write(f"{website_entry.get()} | {email_user_entry.get()} | {password_entry.get()}\n")
+            data_file.close()
+            clear_entries()
+            print("Add button clicked")
 # ---------------------------- UI SETUP ------------------------------- #
 
 
+def clear_entries():
+    website_entry.delete(0, 'end')
+    password_entry.delete(0, 'end')
 
 window = Tk()
 window.title("Password Manager")
@@ -26,8 +105,7 @@ canvas.grid(column=1,row=0)
 #Buttons
 
 
-def generate_password():
-    print("Generate Password button clicked")
+
 
 add_button = Button(text="Add",command=save,width=32)
 add_button.grid(column=1,row=4, columnspan=2)
