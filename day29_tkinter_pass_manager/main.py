@@ -3,7 +3,9 @@ from tkinter import messagebox
 import random
 import pyperclip
 import pyclip
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+import json
+# --------------------
+# -------- PASSWORD GENERATOR ------------------------------- #
 #Password Generator Project
 def generate_password():
     import random
@@ -38,6 +40,10 @@ def generate_password():
     long_names = [name.upper() for name in names if len(name)> 4]
     '''
 
+
+    '''
+    JSON Methods: Write - json.dump(), Read - json.load(), Update - json.update()
+    '''
     # Next 3 for loops were replace by list comprehension above
     # for char in range(nr_letters):
     #   password_list.append(random.choice(letters))
@@ -74,16 +80,28 @@ def save():
     email = email_user_entry.get()
     password = password_entry.get()
 
+    new_data = {
+        website : {
+            "email" : email,
+            "password" : password
+        }
+    }
+
+
     if len(website) == 0 or len(email)==0 or len (password)==0:
         messagebox.showwarning(title="Oops",message="Please don't leave any fields empty!")
-    else:  
-        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it ok to save? ")
+    else:
+        with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "r") as data_file:
+            #json.dump(new_data, data_file, indent=4)
+            data = json.load(data_file)
+            print(data)
+        # is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it ok to save? ")
         
         #messagebox.showinfo(title="Title", message="Message")
-        if is_ok:
-            data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.txt", "a")
-            data_file.write(f"{website_entry.get()} | {email_user_entry.get()} | {password_entry.get()}\n")
-            data_file.close()
+        #if is_ok:
+        # data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "w")
+        # data_file.write(f"{website_entry.get()} | {email_user_entry.get()} | {password_entry.get()}\n")
+        # data_file.close()
             clear_entries()
             print("Add button clicked")
 # ---------------------------- UI SETUP ------------------------------- #
