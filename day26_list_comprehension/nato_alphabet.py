@@ -8,13 +8,23 @@ import csv
 #     nato_dict = dict(filter(None, csv.reader(f)))
 #     nato_dict2 = {letter:code for (letter, code) in nato_dict.items()}
 
-data = pandas.read_csv('nato_phonetic_alphabet.csv')
+data = pandas.read_csv('/home/rishells/rcdev/100daysOfPython/day26_list_comprehension/nato_phonetic_alphabet.csv')
 phonetic_dict = {row.letter:row.code for (index, row) in data.iterrows()}
 #print(phonetic_dict)
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-user_input = input("Enter a word: ").upper()
-output_list = [phonetic_dict[letter] for letter in user_input]
-print(output_list)
+
+def generate_phonetic():
+    user_input = input("Enter a word: ").upper()
+    try:
+        output_list = [phonetic_dict[letter] for letter in user_input]
+    except KeyError as error_message: 
+        print(f"{error_message} is not a valid letter, please try again.")
+        generate_phonetic()
+    else:
+        print(output_list)
+    
+
+generate_phonetic()
 
 
 
