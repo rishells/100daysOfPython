@@ -91,19 +91,55 @@ def save():
     if len(website) == 0 or len(email)==0 or len (password)==0:
         messagebox.showwarning(title="Oops",message="Please don't leave any fields empty!")
     else:
-        with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "r") as data_file:
-            #json.dump(new_data, data_file, indent=4)
-            data = json.load(data_file)
-            print(data)
-        # is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it ok to save? ")
-        
-        #messagebox.showinfo(title="Title", message="Message")
-        #if is_ok:
-        # data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "w")
-        # data_file.write(f"{website_entry.get()} | {email_user_entry.get()} | {password_entry.get()}\n")
-        # data_file.close()
+        try:
+            with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "r") as data_file:
+                
+                #Reading old data
+                data = json.load(data_file)
+                #Updating old data with new data
+                data.update(new_data)
+        except FileNotFoundError:
+            with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "w") as data_file:
+                json.dump(new_data, indent=4)
+        else:
+            #Updating old data with new data
+            data.update(new_data)
+
+            with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "w")  as data_file:
+
+                #Saving updated data
+                json.dump(data, data_file, indent=4)
+            #print(data)
+            # is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} \nPassword: {password} \n Is it ok to save? ")
+            
+            #messagebox.showinfo(title="Title", message="Message")
+            #if is_ok:
+            # data_file = open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json", "w")
+            # data_file.write(f"{website_entry.get()} | {email_user_entry.get()} | {password_entry.get()}\n")
+            # data_file.close()
+        finally:
             clear_entries()
             print("Add button clicked")
+
+
+def search_password():
+    website = website_entry.get()
+    try:
+        with open("/home/rishells/rcdev/100daysOfPython/day29_tkinter_pass_manager/data.json") as data_file:
+            data = json.load(data_file)
+
+    except FileNotFoundError:
+        messagebox.showerror(title="Error", message="No Data File Found.")
+    else:
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
+        else:
+            messagebox.showerror(title="Error", message=f"No details for {website} exists.")
+    
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 
@@ -131,6 +167,8 @@ add_button.grid(column=1,row=4, columnspan=2)
 generate_password_button = Button(text="Generate Password",command=generate_password)
 generate_password_button.grid(column=2,row=3)
 
+search_button = Button(text="Search",command=search_password,width=15)
+search_button.grid(column=2,row=1)
 
 #Labels
 
@@ -144,8 +182,8 @@ password_label = Label(text="Password:")
 password_label.grid(column=0,row=3)
 
 #Entry
-website_entry = Entry(width=35)
-website_entry.grid(column=1, row=1,columnspan=2)
+website_entry = Entry(width=15)
+website_entry.grid(column=1, row=1)
 website_entry.focus()
 
 email_user_entry = Entry(width=35)
