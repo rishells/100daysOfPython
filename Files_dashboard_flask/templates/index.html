@@ -12,6 +12,7 @@
                 <tr>
                     <th>File Name</th>
                     <th>Status</th>
+                    <th>Modified Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                         <span class="badge badge-danger">Not Updated</span>
                         {% endif %}
                     </td>
+                    <td>{{ file.modified_time }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

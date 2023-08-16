@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os
 import time
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def is_recently_modified(file_path, threshold_seconds=3600):
 def index():
     monitored_files = [
         {'name': 'file1.txt', 'path': 'C:\\Users\\Administrator\\rcdev\\100daysOfPython\\Files_dashboard_flask\\main.py'},
-        {'name': 'file2.txt', 'path': 'C:\\Users\\Administrator\\rcdev\\100daysOfPython\\day25_pandas\\becas.csv'},
+      {'name': 'file2.txt', 'path': 'C:\\Users\\Administrator\\rcdev\\100daysOfPython\\day25_pandas\\becas.csv'}
         # Add more files to the list
     ]
     threshold_seconds = 3600  # 1 hour
@@ -30,6 +31,10 @@ def index():
         else:
             file['status'] = 'Not Updated'
         
+        file_stats = os.stat(file['path'])
+        modification_time = datetime.fromtimestamp(file_stats.st_mtime)
+        file['modified_time'] = modification_time.strftime('%Y-%m-%d %H:%M:%S')
+
         updated_files.append(file)
 
     return render_template('index.html', updated_files=updated_files)
