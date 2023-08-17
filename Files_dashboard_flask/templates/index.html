@@ -1,39 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>File Monitor Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>File Monitor Dashboard</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>File Name</th>
-                    <th>Status</th>
-                    <th>Modified Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for file in updated_files %}
-                <tr>
-                    <td>{{ file.name }}</td>
-                    <td>
-                        {% if file.status == 'Updated' %}
-                        <span class="badge badge-success">Updated</span>
-                        {% else %}
-                        <span class="badge badge-danger">Not Updated</span>
-                        {% endif %}
-                    </td>
-                    <td>{{ file.modified_time }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% if updated_files|length == 0 %}
-        <p>No updated files found.</p>
-        {% endif %}
-    </div>
-</body>
-</html>
+<table class="table" id="fileTable">
+    <thead>
+        <tr>
+            <th>
+                <button onclick="sortTable(0)">File Name</button>
+            </th>
+            <th>
+                <button onclick="sortTable(1)">Status</button>
+            </th>
+            <th>
+                <button onclick="sortTable(2)">Modified Time</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in updated_files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td>
+                {% if file.status == 'Updated' %}
+                <span class="badge badge-success">Updated</span>
+                {% else %}
+                <span class="badge badge-danger">Not Updated</span>
+                {% endif %}
+            </td>
+            <td>{{ file.modified_time }}</td>
+        </tr>
+        {% endfor %}
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("fileTable");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+
+    </tbody>
+</table>
