@@ -7,7 +7,7 @@ wc -l file.txt  Count lines in a file
 du -sh    Get the space used of a directory
 grep -c text_tofind *.txt | wc -l   Count ocurrances in several files
 sudo shutdown 17:30 to program a shutdown  | shutdown -c to cancel the shutdown
-
+du -hs * | sort -hr     Show sorted files and its sizes
 
 update google chrome
 sudo apt update
@@ -15,6 +15,10 @@ sudo apt update
 
 sudo apt install --only-upgrade google-chrome-stable
 
+
+update kali linux
+sudo apt update
+sudo apt full-upgrade -y
 
 
 
